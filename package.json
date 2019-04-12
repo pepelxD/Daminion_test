@@ -1,0 +1,39 @@
+{
+  "name": "Daminion_Software_test",
+  "version": "1.0.0",
+  "description": "Test for the company Daminion Software for the position front-end developer",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev": "webpack-dev-server --open"
+  },
+  "author": "Ryzhakov Andrey",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-combine-duplicated-selectors": "^7.0.0",
+    "postcss-csslock": "^1.0.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-neogrid": "^1.1.0",
+    "postcss-nested": "^4.1.2",
+    "postcss-nested-ancestors": "^2.0.0",
+    "postcss-nested-vars": "^1.0.0",
+    "postcss-sprites": "^4.2.1",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
