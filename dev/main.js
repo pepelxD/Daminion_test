@@ -1,3 +1,7 @@
 import html from './index.pug';
 import style from './style.css';
-console.log(1235)
+import routes from './routes.json';
+import Rout from './controlers/routes.js';
+
+const rout = new Rout();
+rout.init(routes);

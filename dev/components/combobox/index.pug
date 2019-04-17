@@ -1,0 +1,24 @@
+- var licenseCount = 10;
+- var iterator = 1;
+form.combobox(action="#" method="POST" id="combobox")
+    div.license_type
+        each val, name in prices
+            input(type="radio", name="licenseplan" value= name data-price= val id="field-plan-" + name checked= iterator > 1 ? false : true)
+            - iterator++;
+            label.combobox_field(for="field-plan-" + name) 
+                span.license_name licenseplan#{name}
+                span.license_price $ #{val} per license
+    div.license_count
+        p Number of license: 
+        select(name="licensecount")
+            - for(var i = 1; i <= licenseCount; i++)
+                option(value= i selected= i ===1 ? true : false) #{i}
+    div.license_selected
+        span.total-price
+            span.text total:
+            span.price
+                span.price_value $340
+                span.price_currency us
+        input(class="submit" type="submit", value="by now")
+        span.selected Selected plan:
+            span.selected_value #3

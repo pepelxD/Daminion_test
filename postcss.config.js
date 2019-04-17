@@ -14,6 +14,7 @@ let settings = {
       'postcss-csslock': {},
       'postcss-nested-ancestors': {}, // сомнительно что пригодиться, хотя в БЭМ именовании может быть полезен
       'postcss-nested': {}, // вложенные css правила 
+      'postcss-color-function': {preserveCustomProps: true},
       
       'postcss-nested-vars': {}, // переменные с областью видимости
 

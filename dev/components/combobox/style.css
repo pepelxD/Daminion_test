@@ -1,0 +1,152 @@
+
+@font-face {
+	font-family: "Bebas";
+	src: url(bebas.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+.combobox {
+    width: 70%;
+    max-width: 590px;
+    box-sizing: border-box;
+    border: 15px solid #ebebeb;
+    margin: auto;
+    padding-left: 18px;
+    padding-right: 18px;
+    background-color: #f8f8f8;
+
+    & input[type=radio]:checked + label::before {
+        border-color: #34648e;
+    }
+    & input[type=radio]:checked + label::after {
+        display: block;
+    }
+    & input[type=radio]:checked + label {
+        background-color: color(#0294bf a(10%));
+        outline: 1px solid color(#0294bf b(10%));
+    }
+
+    &_field {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-right: 18px;
+        padding-left: 73px;
+        cursor: pointer;
+        box-sizing: border-box;
+        position: relative;
+
+        &:hover {
+            background-color: color(#0294bf a(10%));
+            outline: 1px solid color(#0294bf b(10%));
+        }
+        &::before {
+            position: absolute;
+            left: 25px;
+            bottom: 30%;
+            content: "";
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            border: 5px solid #dadada;
+            border-radius: 50%;
+        }
+        &::after {
+            position: absolute;
+            left: 35px;
+            bottom: 42%;
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #0294bf;
+            display: none;
+        }
+    }
+    & input[type="radio"] {
+        display: none;
+    }
+    & .submit {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 60px;
+        padding-right: 60px;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: sans-serif;
+        background-color: #33a845;
+        border: none;
+        color: #fff;
+        border-radius: 30px;
+        font-weight: 500;
+        margin-bottom: 48px;
+    }
+}
+.license {
+    &_name {
+        font-size: 24px;
+        font-family: "Bebas";
+        color: #787878;
+    }
+    &_price {
+        font-size: 16px;
+        font-family: sans-serif;
+        color: #97999a;
+    }
+    &_count {
+        border-top: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        display: flex;
+        flex-wrap: wrap;
+        font-family: sans-serif;
+        font-size: 16px;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        align-items: center;
+        margin-bottom: 38px;
+        & p {
+            margin-right: 10px;
+        }
+        & select {
+            height: 30px;
+            width: 60px;
+        }
+    }
+    &_selected {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & .selected {
+            color: #3388a8;
+            font-family: sans-serif;
+            font-size: 20px;
+            margin-bottom: 48px;
+
+            &_value {
+                margin-left: 12px;
+            }
+        }
+    }
+}
+.total-price {
+    font-size: 24px;
+    font-family: "Bebas";
+    color: #777777;
+    margin-bottom: 20px;
+    & .text {
+        margin-right: 5px;
+    }
+}
+.price {
+    color: #3388a8;
+    &_currency {
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: super;
+    }
+}

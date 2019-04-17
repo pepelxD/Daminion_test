@@ -1,0 +1,31 @@
+.render-block {
+    display: flex;
+}
+.menu {
+    list-style-type: none;
+    width: 60%;
+    margin: auto;
+
+    &_item {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    &_link {
+        display: block;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: cornflowerblue;
+        text-align: center;
+        font-size: 20px;
+        text-decoration: none;
+        color: #fff;
+        border: 2px solid darkblue;
+        transition: all .2s linear;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: color(cornflowerblue b(20%));
+            transform: scale(1.03);
+        }
+    }
+}

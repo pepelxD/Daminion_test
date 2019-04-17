@@ -29,7 +29,7 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            name: 'assets/font/[name].[ext]'
+            name: 'font/[name].[ext]'
           }
         }]
       },
@@ -39,7 +39,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env', {modules: false}]]
+            presets: [['@babel/preset-env'/* , {modules: false} */]],
+            plugins: ['@babel/plugin-syntax-dynamic-import']
           }
         }
       },
