@@ -2,4 +2,6 @@ import View from '../../controlers/view.js'
 import html from './index.pug';
 import style from './style.css';
 
-export default new View(html());
+export default function() {
+    new View(html()).render();
+} 

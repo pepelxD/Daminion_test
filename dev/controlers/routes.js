@@ -1,13 +1,3 @@
-import menu from '../components/menu';
-import error from '../components/error';
-import combobox from '../components/combobox';
-import circle from '../components/circle';
-
-const views = {
-    'menu' : menu,
-    'combobox': combobox,
-    'circle': circle
-};
 export default class {
     constructor() {
         this.routes = {};
@@ -16,12 +6,10 @@ export default class {
         return hash.replace('#', '');
     }
     changeRout(rout) {
-        try {
-            views[this.routes[rout]].render();
-        } catch (err) {
-            console.error(err)
-            error.render();
-        }
+        const comp = this.routes[rout] || 'error';
+        import(`../components/${comp}`)
+        .then(({default: comp}) => {comp()})
+        .catch(err => console.log(err));
     }
     init(routes) {
         for(var key in routes) {

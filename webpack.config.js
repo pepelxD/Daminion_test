@@ -2,9 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const developmentEnv = process.env.NODE_ENV === 'development';
+console.log(developmentEnv);
 
 module.exports = {
-  mode: developmentEnv ? 'development' : 'production',
+ /*  mode: developmentEnv ? 'development' : 'production', */
+ mode: 'development',
   entry: {
     main: './dev/main.js'
   },
@@ -13,6 +15,11 @@ module.exports = {
     chunkFilename: 'js/[name].js',
     path: path.join(__dirname, 'app'),
     publicPath: '/'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   devtool: 'source-map',
   devServer: {
@@ -39,8 +46,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [['@babel/preset-env'/* , {modules: false} */]],
-            plugins: ['@babel/plugin-syntax-dynamic-import']
+            presets: [['@babel/preset-env', {modules: false}]],
+            plugins: ['@babel/plugin-syntax-dynamic-import', 'dynamic-import-webpack']
           }
         }
       },

@@ -37,11 +37,15 @@ class Combobox {
     }
 }
 
-// В данном случае нет смысла наследоваться от вьюхи, так как данные у нас не динамичные. Поэтому экспортируем уже 
-// готовый экземпляр вьюхи.
-// Иначе было бы целесообразно отнаследоваться от вьюхи добавив метод взаимодействия с базой
-// дабы шаблон получал актуальные данные из базы
-export default new View(html({prices: prices}), () => {
-    const combobox = new Combobox(document.querySelector('#combobox'));
-    combobox.init();
-});
+// Здесь имитируем обращение к базе через промис. Когда данные получены рисуем разметку и запускаем скрипт.
+export default function() {
+    import('./price.json')
+    .then(({result}) => {
+        console.log(result)
+        new View(html({prices: prices})).render();
+    })
+    .then( () => {
+        new Combobox(document.querySelector('#combobox')).init();
+    });
+    
+}

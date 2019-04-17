@@ -11,7 +11,7 @@ class Circle {
         this.x = this.DOMElement.width / 2,
         this.y = this.DOMElement.height / 2,
         this.ballRadius = 39;
-        this.cirleRadius = this.DOMElement.width / 2 - 50
+        this.cirleRadius = this.DOMElement.width / 2 - 50;
     }
     drawCircle(x, y, radius, fill) {
         this.ctx.beginPath();
@@ -22,6 +22,8 @@ class Circle {
         this.ctx.closePath();
     }
     render() {
+        //5:1 = dx: p 
+
         this.ctx.clearRect(0, 0, this.DOMElement.width, this.DOMElement.height);
         this.drawCircle(
             this.DOMElement.width / 2, 
@@ -37,6 +39,10 @@ class Circle {
         );
         this.x += this.dx;
         this.y += this.dy;
+
+        
+
+
         if(Math.pow(this.x - this.DOMElement.width / 2, 2) + Math.pow(this.y - this.DOMElement.height / 2, 2) >= Math.pow(this.cirleRadius - this.ballRadius, 2) ||
         Math.pow(this.mouseX - this.x, 2) + Math.pow(this.mouseY - this.y, 2) <= Math.pow(this.ballRadius + 5, 2)) {
             this.dx = -this.dx;
@@ -58,11 +64,11 @@ class Circle {
             let xResult = mouseX - currentX;
             let yResult = mouseY - currentY;
             distance = Math.sqrt(xResult * xResult + yResult * yResult);
-            if(Math.pow(mouseX - this.x, 2) + Math.pow(mouseY - this.y, 2) <= Math.pow(this.ballRadius + 5, 2) && 
+            if(Math.pow(this.mouseX - this.x, 2) + Math.pow(this.mouseY - this.y, 2) <= Math.pow(this.ballRadius + 5, 2) && 
                 Math.pow(this.x - this.DOMElement.width / 2, 2) + Math.pow(this.y - this.DOMElement.height / 2, 2) < Math.pow(this.cirleRadius - this.ballRadius, 2)) {
-                this.dx += xResult;
-                this.dy += yResult;
-            } else if(Math.pow(mouseX - this.x, 2) + Math.pow(mouseY - this.y, 2) <= Math.pow(this.ballRadius + 5, 2) && 
+                this.dx = xResult / distance * speed;
+                this.dy = yResult / distance * speed;
+            } else if(Math.pow(this.mouseX - this.x, 2) + Math.pow(this.mouseY - this.y, 2) <= Math.pow(this.ballRadius + 5, 2) && 
             Math.pow(this.x - this.DOMElement.width / 2, 2) + Math.pow(this.y - this.DOMElement.height / 2, 2) >= Math.pow(this.cirleRadius - this.ballRadius, 2)) {
                 this.x -= xResult;
                 this.y -= yResult;
@@ -72,14 +78,13 @@ class Circle {
             
         }
         this.render();
-        
     }
     
     
 }
 
-
-export default new View(html(), () => {
+export default function() {
+    new View(html()).render();
     const circle = new Circle(document.querySelector('#canvas'));
     circle.init();
-});
+}
