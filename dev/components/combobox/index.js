@@ -46,6 +46,7 @@ export default function() {
     })
     .then( () => {
         new Combobox(document.querySelector('#combobox')).init();
+        document.body.style.height = 'auto';
     });
     
 }

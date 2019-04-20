@@ -77,8 +77,8 @@ class Circle {
     }
     init() {
         let x = 0, y = 0; 
-        window.addEventListener('mousemove', e => {
-            let z = window.getComputedStyle(canvas).zoom || 1;     
+        this.DOMElement.addEventListener('mousemove', e => {
+            let z = window.getComputedStyle(this.DOMElement).zoom || 1;     
             x = e.pageX/z - e.target.offsetLeft - this.DOMElement.offsetLeft;
             y = e.pageY/z - e.target.offsetTop - this.DOMElement.offsetTop;
         });
@@ -93,6 +93,7 @@ class Circle {
             t = new Date().getTime();
         }, 10);
     }
+   
     
     
 }
@@ -101,4 +102,5 @@ export default function() {
     new View(html()).render();
     const circle = new Circle(document.querySelector('#canvas'));
     circle.init();
+    document.body.style.height = 'auto';
 }
