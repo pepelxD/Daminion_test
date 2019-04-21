@@ -1,15 +1,20 @@
+
+
+const controlers = {
+    menu: () => import('../components/menu'),
+    circle: () => import('../components/circle'),
+    combobox: () => import('../components/combobox')
+};
 export default class {
     constructor() {
         this.routes = {};
+        this.controllers = {};
     }
     getHash(hash) {
         return hash.replace('#', '');
     }
     changeRout(rout) {
-        const comp = this.routes[rout] || 'error';
-        import(`../components/${comp}`)
-        .then(({default: comp}) => {comp()})
-        .catch(err => console.log(err));
+        controlers[this.routes[rout]]().then(({default: module}) => module());
     }
     init(routes) {
         for(var key in routes) {
